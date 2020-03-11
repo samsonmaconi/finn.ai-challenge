@@ -2,13 +2,15 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/persistedUser');
 const {v4} = require('uuid');
+const axios = require('axios');
 
 /* GET user */
-router.get('/', function (req, res, next) {
+router.get('/', async function (req, res, next) {
   let storage = req.app.locals
   let user = storage.persistedUser
-  //TODO: Get and Set User Tone
-  // user.setTone(userTone)
+  response = await axios.post(`http://${process.env.HOST}:${process.env.PORT_FLASK_SRV}/tone`, {text: user.biography})
+  .catch(err=>console.log(err))
+  user.setTone(response.data)
   console.log('User :', user);
   res.send(user);
 });

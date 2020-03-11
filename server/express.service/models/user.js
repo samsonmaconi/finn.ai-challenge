@@ -8,7 +8,7 @@ class User {
     }
 
     setTone(tone) {
-        this.tone = "new tone"
+        this.tone = tone
     }
 }
 
