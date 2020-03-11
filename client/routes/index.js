@@ -7,7 +7,7 @@ router.get('/', async function (req, res, next) {
   let user = null
 
   try {
-    response = await axios.get(`http://${process.env.HOST}:${process.env.PORT_EXPRESS_SRV}/user`)
+    response = await axios.get(`http://${process.env.SERVER_HOST}:${process.env.PORT_EXPRESS_SRV}/user`)
     user = response.data
   } catch (error) {
     console.log(error);
