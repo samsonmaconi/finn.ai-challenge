@@ -8,9 +8,12 @@ const axios = require('axios');
 router.get('/', async function (req, res, next) {
   let storage = req.app.locals
   let user = storage.persistedUser
-  response = await axios.post(`http://${process.env.HOST}:${process.env.PORT_FLASK_SRV}/tone`, {text: user.biography})
-  .catch(err=>console.log(err))
-  user.setTone(response.data)
+  try {
+    response = await axios.post(`http://${process.env.HOST}:${process.env.PORT_FLASK_SRV}/tone`, {text: user.biography})
+    user.setTone(response.data)
+  } catch (err) {
+    console.log(err)
+  }
   console.log('User :', user);
   res.send(user);
 });
