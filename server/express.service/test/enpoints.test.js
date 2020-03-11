@@ -25,6 +25,7 @@ describe('User Endpoint testing', () => {
     .expect(200)
     .end(async (err, res) => {
       initialUserID = res.body.userId
+      assert(res.body.tone != null)
       done();
     });
   });
