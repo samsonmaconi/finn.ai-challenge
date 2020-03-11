@@ -1,7 +1,7 @@
 require('dotenv').config()
 const assert = require('assert');
 let request = require('supertest');
-request = request(`http://${process.env.HOST}:${process.env.PORT}`);
+request = request(`http://${process.env.HOST}:${process.env.PORT_EXPRESS_SRV}`);
 
 
 describe('Id Endpoint testing', () => {
