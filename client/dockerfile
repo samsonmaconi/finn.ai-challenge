@@ -1,0 +1,16 @@
+# Use node 11.10.1 LTS
+FROM node:11.10.1
+
+ENV PORT_EXPRESS_CLIENT=8888
+ENV PORT_EXPRESS_SRV=3000
+ENV SERVER_HOST=web_server
+
+COPY . /app
+
+WORKDIR /app
+
+RUN npm install
+
+EXPOSE 8888
+
+CMD node ./bin/www
