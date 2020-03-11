@@ -6,10 +6,6 @@ class PersistedUser extends User {
         super(id, firstName, lastName, biography)
     }
 
-    setTone(tone) {
-        this.tone = tone
-    }
-
     saveToStorage(storage) {
         storage['persistedUser'] = this
     }
