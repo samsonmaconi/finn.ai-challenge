@@ -23,7 +23,7 @@ router.post('/', function (req, res, next) {
   }
   let storage = req.app.locals
   let userId = v4()
-  let newUser = new User(userId, 'Samson', 'Maconi', 'Solutions provider') // user new unique ID
+  let newUser = new User(userId, 'Samson', 'Maconi', 'Solutions provider... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna') // user new unique ID
   newUser.saveToStorage(storage)
   console.log('newUser :', storage['persistedUser']);
   res.status(201).send({newUser})
