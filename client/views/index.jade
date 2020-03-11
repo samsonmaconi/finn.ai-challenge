@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  p Candidate - Samson Maconi
+  div.position-relative.overflow-hidden.p-3.p-md-5.mx-md-3.mt-5.text-center.bg-light
+    h4.font-weight-normal.text-left.text-muted User Profile Details
+    if user
+      div.col-md-5.p-lg-5.mx-auto.my-5
+        h1.display-4.font-weight-normal #{user.firstName} #{user.lastName}
+        h4.font-weight-normal.text-primary #{user.userId}
+        h6.font-weight-bold.mt-5.underline #{user.tone} Biography
+        p #{user.biography}
+    else
+      div.col-md-5.p-lg-5.mx-auto.my-5
+          h1.display-6.font-weight-normal.text-danger Requested Data is Currently Unavailable.
+          p.font-weight-normal Check connection to API Server
+
+    
+
